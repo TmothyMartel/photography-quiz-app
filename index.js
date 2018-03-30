@@ -141,7 +141,7 @@ function quizRender(index) {
 					<button type="button" name="next-question" id="next" class="btn">Next Question</button>
 			</div>
 			<div class="final-button">
-				<button type="button" name="next-question" id="next" class="btn">See final results</button>
+				<button type="button" name="final-question" class="btn">See final results</button>
 			</div>
 		 </div>`).hide().appendTo('.container').fadeIn(500);
 

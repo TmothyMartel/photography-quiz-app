@@ -15,6 +15,11 @@ p {
 	letter-spacing: 1.25px;
 }
 
+legend {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .quiz-banner {
 	width: 100%;
 	margin-bottom: 10px;
