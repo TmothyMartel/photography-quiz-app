@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Test your knowledge of photography">
-    <title>The Photography Quiz</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu:700" rel="stylesheet">
-	<link rel="stylesheet" href="index.css"> 
-</head>
-<body>
-	<header class="quiz-banner" role="banner">
-		<h1 class="site-title">The Photography Quiz</h1>
-	</header>
-	<main role="main">
-		<section class="scoreboard" role="region">
-			<div>question <span id="question-num">1</span>/10</div>
-			<div>current score: <span id="score">0</span></div>
-		</section>
-		<section class="container" role="region"></section>
-	</main>
-	<footer role="contentinfo">
-		<p> &copy; 2018 - Timothy Martel</p>
-	</footer>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="index.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Test your knowledge of photography">
+		<title>The Photography Quiz</title>
+		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu:700" rel="stylesheet">
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<header class="quiz-banner" role="banner">
+			<h1 class="site-title">The Photography Quiz</h1>
+		</header>
+		<main role="main">
+			<section class="scoreboard" role="region">
+				<div>question <span id="question-num">1</span>/10</div>
+				<div>current score: <span id="score">0</span></div>
+			</section>
+			<section class="container" role="region">
+				
+				<div class="start-page hidden">
+					<h2 class="welcome">Test your knowledge of photography</h2>
+					<p> You will be asked 10 questions about some of the core principles of this art form. Can you get them all correct? Click start to begin and good luck!</p>
+					<button type="button" name="start" class="btn begin">Start Quiz</button>
+				</div>
+				<div class="quiz-board hidden">
+					<form id="js-question-form" class="question-form" role="form">
+						<h2 class="question">QUESTION GOES HERE</h2>
+						<fieldset>
+							<legend>Pick the correct answer</legend>
+							<button type="button" data-value="0" id="answer-0" class="btn answer"></button>
+							<button type="button" data-value="1" id="answer-1" class="btn answer"></button>
+							<button type="button" data-value="2" id="answer-2" class="btn answer"></button>
+							<button type="button" data-value="3" id="answer-3" class="btn answer"></button>
+						</fieldset>
+					</form>
+					<h2 class="feedback-text hidden"></h2>
+					<div class="next-button hidden">
+						<button type="button" name="next-question" id="next" class="btn">Next Question</button>
+					</div>
+					<div class="final-button hidden">
+						<button type="button" name="final-result" id="final-button" class="btn">Final Results</button>
+					</div>
+				</div>
+
+				<div class="final-score hidden">
+					<h1 class="final-text">Your final score!</h1>
+					<h2 class="final-text" id="rank">Your rank is professional</h2>
+					<p id="rank-description">Amazing! You are a pro with the camera!</p>
+					<p>Would you like to try again?</p>
+					<button type="button" name="restart" class="btn restart">Restart</button>
+				</div>
+				
+			</section>
+		</main>
+		<footer role="contentinfo">
+			<p> &copy; 2018 - Timothy Martel</p>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>
