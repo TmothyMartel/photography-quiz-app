@@ -94,20 +94,18 @@
 
   ];
 
-  let questionIndex = 0;
-  let currentScore = 0;
-  let questionNumber = 1;
+  let questionIndex;
+  let currentScore;
+
 
   function renderStart() {
       // //zeroes out score and questionIndex to ensure quiz starts at the beginning.
       questionIndex = 0;
       currentScore = 0;
-      console.log(questionIndex)
       $('#question-num').text(`1`);
       $('#score').text(`${currentScore}`);
       $('.scoreboard div').hide();
       $('.start-page').fadeIn(500); // renders start page
-      setupListeners();
   }
 
   function setupListeners() {
@@ -138,11 +136,10 @@
       $('.quiz-board').fadeIn(500);
       $('#js-question-form').fadeIn(500);
       $('.question').text(QUESTIONS[index].question);
-       console.log(questionIndex);
+      $('#question-num').text(`${questionIndex + 1}`);
       QUESTIONS[index].answers.forEach((answer, index) => {
           $(`#answer-${index}`).text(answer)
       });
-
       $('.next-button').hide();
       $('.final-button').hide();
 
@@ -152,16 +149,16 @@
   function answerChecker() {
 
       $('#js-question-form').on('click', '.btn.answer', function() {
-          let correctAns = `${QUESTIONS[questionIndex].correct}`;
-          let correct = $(this).attr('data-value');
-          let answerVal = `${QUESTIONS[questionIndex].answers[]}`
+          let correctAnswer = `${QUESTIONS[questionIndex].correct}`;
+          let userAnswer = $(this).attr('data-value');
+          let correctAnswerText = QUESTIONS[questionIndex].answers[correctAnswer];
           let feedback;
 
-          if (correctAns === correct) {
-              feedback = `You got it right! ${answerVal} is the correct answer!`;
+          if (userAnswer === correctAnswer) {
+              feedback = `You got it right! ${correctAnswerText} is the correct answer!`;
               incrementQuizScore();
           } else {
-              feedback = `Sorry, but ${answerVal}, is the correct answer.`;
+              feedback = `Sorry, but ${correctAnswerText}, is the correct answer.`;
           }
           feedbackRender(feedback);
           $('#js-question-form').hide();
@@ -170,9 +167,6 @@
 
   }
 
-  function getCorrectValue() {
-  	if 
-  }
 
   function quizQuestionIncrementer() {
       //this function will be used to increment through the question object array
@@ -185,16 +179,14 @@
       $('#next').on('click', function() {
           $('.feedback-text').hide();
           $('#js-question-form').fadeIn(500);
-          questionNum();
-          quizRender(questionIndex);
-          
+          quizRender(questionIndex); 
       });
   }
 
   //does a check to determine if the next question button or final result button should show
   function buttonHandler() {
   	  quizQuestionIncrementer();
-      if (questionIndex < QUESTIONS.length) {
+      if (questionIndex < QUESTIONS.length - 1) {
           $('.next-button')
               .fadeIn(500)
               .show();
@@ -218,15 +210,7 @@
 
   }
 
-  //update the question number
-  function questionNum() {
-  	  
-  	  if (questionNumber < 10) {
-        questionNumber ++;  
-      } 
-      $('#question-num').text(`${questionNumber}`);
-  }
-
+ 
   function finalResult() {
       // this function renders the final results to the user and provides a message on how they did.
       $('.final-button').on('click', function() {
@@ -264,12 +248,12 @@
       $('.restart').on('click', function() {
           $('.final-score').hide();
           $('.start-page').show();
-           //zeroes out score and questionIndex to ensure quiz starts at the beginning.
-      	  questionIndex = 0;
-     	  currentScore = 0;
           renderStart();
       });
   }
 
 
-  $(renderStart);
+  $(function() { 
+  	setupListeners();
+  	renderStart();
+  });
