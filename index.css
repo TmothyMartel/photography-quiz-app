@@ -15,9 +15,9 @@ p {
 	letter-spacing: 1.25px;
 }
 
-legend {
-	margin-left: auto;
-	margin-right: auto;
+
+.hidden {
+	display: none;
 }
 
 .quiz-banner {
