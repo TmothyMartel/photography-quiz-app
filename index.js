@@ -102,7 +102,6 @@
       // //zeroes out score and questionIndex to ensure quiz starts at the beginning.
       questionIndex = 0;
       currentScore = 0;
-      $('#question-num').text(`1`);
       $('#score').text(`${currentScore}`);
       $('.scoreboard div').hide();
       $('.start-page').fadeIn(500); // renders start page
@@ -142,8 +141,6 @@
       });
       $('.next-button').hide();
       $('.final-button').hide();
-
-      //quizQuestionIncrementer();
   }
 
   function answerChecker() {
@@ -168,12 +165,6 @@
   }
 
 
-  function quizQuestionIncrementer() {
-      //this function will be used to increment through the question object array
-      //this will also update the quiz number in the scoreboard	
-      questionIndex++;
-  }
-
   // handler for the next question button
   function nextQuestion() {
       $('#next').on('click', function() {
@@ -185,7 +176,6 @@
 
   //does a check to determine if the next question button or final result button should show
   function buttonHandler() {
-  	  quizQuestionIncrementer();
       if (questionIndex < QUESTIONS.length - 1) {
           $('.next-button')
               .fadeIn(500)
