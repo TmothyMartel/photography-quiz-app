@@ -102,7 +102,7 @@
       // //zeroes out score and questionIndex to ensure quiz starts at the beginning.
       questionIndex = 0;
       currentScore = 0;
-      $('#score').text(`${currentScore}`);
+      $('#score').text(`0`);
       $('.scoreboard div').hide();
       $('.start-page').fadeIn(500); // renders start page
   }
@@ -168,6 +168,7 @@
   // handler for the next question button
   function nextQuestion() {
       $('#next').on('click', function() {
+      	  questionIndex++
           $('.feedback-text').hide();
           $('#js-question-form').fadeIn(500);
           quizRender(questionIndex); 
