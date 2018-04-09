@@ -162,7 +162,6 @@
           buttonHandler();
       });
 
-  }
 
 
   // handler for the next question button
