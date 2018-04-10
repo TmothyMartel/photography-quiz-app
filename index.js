@@ -161,6 +161,7 @@
           $('#js-question-form').hide();
           buttonHandler();
       });
+  }
 
 
 
